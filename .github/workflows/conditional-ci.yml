@@ -1,5 +1,4 @@
-name: conditional-workflow
-
+name: Conditional CI Pipeline
 on:
  push:
   branches:
