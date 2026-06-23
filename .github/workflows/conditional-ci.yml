@@ -1,0 +1,23 @@
+name: conditional-workflow
+
+on:
+ push:
+  branches:
+    - main
+    - feature/test-branch
+jobs:
+  build:
+    if: startsWith(github.ref, 'refs/heads/main/') && success()
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Build stage
+        run: echo "Build stage completed"
+  test:
+    needs: build
+    if: startsWith(github.ref, 'refs/heads/feature/') && success()
+    runs-on: ubuntu-latest
+    steps:
+      - name: test stage
+        run: echo "test stage completed" 
