@@ -7,7 +7,7 @@ on:
     - feature/test-branch
 jobs:
   build:
-    if: startsWith(github.ref, 'refs/heads/main/') && success()
+    if: startsWith(github.ref, 'refs/heads/feature/test-branch') && success()
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -21,4 +21,4 @@ jobs:
     steps:
       - name: test stage
         run: echo "test stage completed"
-     #test branch 
+   
